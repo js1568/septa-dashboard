@@ -1,0 +1,18 @@
+{
+  "name": "septa-dashboard",
+  "version": "0.0.0",
+  "description": "Display of the next five arriving trains by station and track",
+  "main": "server.js",
+  "repository": "",
+  "author": "js1568@gmail.com",
+  "dependencies": {
+    "express": "~3.2.4",
+    "request": "~2.34.0"
+  },
+  "devDependencies": {
+    "gulp": "~3.6.1",
+    "gulp-jshint": "~1.5.3",
+    "jshint-stylish": "~0.1.5",
+    "gulp-jscs": "~0.4.2"
+  }
+}

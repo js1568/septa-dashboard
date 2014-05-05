@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Next to arrive at SEPTA stations">
+    <meta name="author" content="Jesse Strangfeld">
+
+    <title>SEPTA</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+        /* Sticky footer styles
+        -------------------------------------------------- */
+        html {
+          position: relative;
+          min-height: 100%;
+        }
+        body {
+          /* Margin bottom by footer height */
+          margin-bottom: 60px;
+          background: #333;
+          color: #ddd;
+        }
+        #footer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          /* Set the fixed height of the footer here */
+          height: 60px;
+          background-color: #222;
+        }
+        .row>div:first-child {
+            border-right: 2px solid #444;
+        }
+        .list-group-item, a.list-group-item:hover, a.list-group-item:focus {
+            background-color:transparent;
+            border-color:transparent;
+        }
+        .list-group-item, .list-group-item a, a.list-group-item .list-group-item-heading, .list-group-item-text {
+            color:#ddd;
+        }
+        .badge {
+            background-color:transparent;
+            font-size:18px;
+        }
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+            <h2>Tracks 1 and 2</h2>
+            <div class="list-group" id="track-1">
+                
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h2>Tracks 3 and 4</h2>
+            <div class="list-group" id="track-2">
+                
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <marquee style="height:55px"><h3></h3></marquee>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/riot.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script id="tmpl_train" type="text/template">
+        <a href="#{train_id}" class="list-group-item">
+            <span class="badge">{track}{platform}</span>
+            <span class="badge">{time}</span>
+            <h4 class="list-group-item-heading">{destination}</h4>
+            <p class="list-group-item-text">{train_id} {service_type}</p>
+        </a>
+    </script>
+  </body>
+</html>
