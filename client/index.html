@@ -62,6 +62,15 @@
     <!-- Begin page content -->
     <div class="container">
       <div class="row">
+        <div class="col-sm-12">
+          <h1 class="btn-group">
+            <a href="#" class="dropdown-toggle text-muted" data-toggle="dropdown">
+              <span class="selected-station"></span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" id="station-list"></ul>
+          </h1>
+      <div class="row">
         <div class="col-sm-6">
             <h2>Tracks 1 and 2</h2>
             <div class="list-group" id="track-1">
@@ -83,20 +92,23 @@
       </div>
     </div>
 
-
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="lib/riot.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-    <script id="tmpl_train" type="text/template">
+    <script id="tmpl-train" type="text/template">
         <a href="#{train_id}" class="list-group-item">
             <span class="badge">{track}{platform}</span>
             <span class="badge">{time}</span>
             <h4 class="list-group-item-heading">{destination}</h4>
             <p class="list-group-item-text">{train_id} {service_type}</p>
         </a>
+    </script>
+    <script id="tmpl-station" type="text/template">
+        <li><a href="#{station_id}">{station_name}</a></li>
     </script>
   </body>
 </html>
