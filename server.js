@@ -1,17 +1,17 @@
 var http = require('request'),
   express = require('express'),
-  app = express();
+  app = express()
 
-app.get('/station', function(req, res) {
-  var request = require("request");
- 
-  request("http://www3.septa.org/hackathon/Arrivals/Suburban%20Station/10/", function(error, response, body) {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(body);
-  });
-    
+app.get('/station/:station_id', function(req, res) {
+  var request = require("request")
+
+  request('http://www3.septa.org/hackathon/Arrivals/' + req.params.station_id + '/10/', function(error, response, body) {
+    res.setHeader('Content-Type', 'application/json')
+    res.send(body)
+  })
+  
 });
 
-app.use('/', express.static('client'));
+app.use('/', express.static('client'))
 
-app.listen(process.env.PORT);
+app.listen(80)
