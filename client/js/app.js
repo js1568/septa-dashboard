@@ -4,7 +4,7 @@ function Station(station_id, init_func) {
   var self = this
 
   self.station_id = null
-  self.trains = []
+  self.track = []
 
   self.init = function(station_id) {
     self.station_id = station_id
@@ -13,10 +13,7 @@ function Station(station_id, init_func) {
 
   self.update = function() {
     $.getJSON('/station/' + self.station_id, function(d) {
-      for (var dir in d) {
-        self.trains[0] = d[dir][0].Northbound
-        self.trains[1] = d[dir][1].Southbound
-      }
+      self.track = d.track
       self.trigger('updated')
     })
     return self
@@ -30,7 +27,7 @@ function Station(station_id, init_func) {
   }
   
   self.log = function() {
-    console.log(self.trains)
+    console.log(self.track)
   }
 
   riot.observable(this)
@@ -53,11 +50,11 @@ $(function() {
 
     window.station.on('set:station', station_callback).on('updated', function() {
       $('#track-1, #track-2').empty()
-      $.each(window.station.trains[0], function() {
+      $.each(window.station.track[1], function() {
         this.time = moment(this.sched_time, 'MMM DD YYYY hh:mm:ss:SSSA').add('m', isNaN(parseInt(this.status)) ? this.status === 'On Time' ? 0 : NaN : parseInt(this.status)).fromNow()
         $('#track-1').append(riot.render($('#tmpl-train').html(), this))
       })
-      $.each(window.station.trains[1], function() {
+      $.each(window.station.track[2], function() {
         this.time = moment(this.sched_time, 'MMM DD YYYY hh:mm:ss:SSSA').add('m', isNaN(parseInt(this.status)) ? this.status === 'On Time' ? 0 : NaN : parseInt(this.status)).fromNow()
         $('#track-2').append(riot.render($('#tmpl-train').html(), this))
       })
